@@ -113,6 +113,29 @@ public class JavaCalculator {
                 total1 = 0;
             }
         });
+        btnCL.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                total2 = 0;
+                textDisplay.setText("");
+            }
+        });
+        btnDot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(textDisplay.getText().equals("")){
+                    textDisplay.setText("0.");
+                }
+                else if(textDisplay.getText().contains(".")){
+                    btnDot.setEnabled(false);
+                }
+                else {
+                    String btnPointText = textDisplay.getText() + btnDot.getText();
+                    textDisplay.setText(btnPointText);
+                }
+                btnDot.setEnabled(true);
+            }
+        });
     }
 
     public static void main(String[] args) {
